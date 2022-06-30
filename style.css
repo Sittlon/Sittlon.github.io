@@ -1,0 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.sidebar-nav {
+  display: block;
+  padding: 2px 6px 2px 30px;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+  list-style: none;
+  background: #232323;
+}
