@@ -5,6 +5,8 @@
       apirepo = `https://api.github.com/users/${user}`
 
       listrepos = $.getJSON(apirepo + '/repos', function(data) {
+          console.log(data)
+
           function compare(a, b) {
               if (a.watchers > b.watchers) {
                   return -1
@@ -39,6 +41,9 @@
               div = document.createElement('div')
               img = document.createElement('img')
 
+
+              a.setAttribute("href", value.html_url)
+              a.setAttribute("target", "_blank")
               div.setAttribute("class", "slider--item-image")
               img.setAttribute("src", "assets/img/" + value.name + ".png")
               p1.setAttribute("class", "slider--item-title")
