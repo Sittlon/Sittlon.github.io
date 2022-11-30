@@ -19,7 +19,7 @@
 
           data.sort(compare)
           for (const [i, value] of data.entries()) {
-              if (value.name == "Sittlon.github.io")
+              if (value.name == "Sittlon.github.io" || value.name = "github-readme-stats" || value.name == "Sittlon")
                   break;
               slider = document.getElementById("slider-projects")
               listItemRepo = document.createElement('li')
