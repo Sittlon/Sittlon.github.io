@@ -45,7 +45,7 @@
               a.setAttribute("href", value.html_url)
               a.setAttribute("target", "_blank")
               div.setAttribute("class", "slider--item-image")
-              img.setAttribute("src", "assets/img/" + value.name + ".png")
+                  //img.setAttribute("src", "assets/img/" + value.name + ".png")
               p1.setAttribute("class", "slider--item-title")
               p2.setAttribute("class", "slider--item-description")
 
