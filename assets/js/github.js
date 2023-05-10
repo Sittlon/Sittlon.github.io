@@ -1,7 +1,6 @@
 function getRepositories() {
     user = 'Sittlon'
     apirepo = `https://api.github.com/users/${user}`
-    urlColors = './colors.json'
 
     listrepos = $.getJSON(apirepo + '/repos', function(data) {
         function compare(a, b) {
@@ -43,8 +42,6 @@ function getRepositories() {
             div.setAttribute("class", "slider--item-title")
             p1.setAttribute("class", "slider--item-title")
             p2.setAttribute("class", "slider--item-description")
-
-            console.log(value.name)
 
             p1.innerHTML = value.name
             p2.innerHTML = value.description
