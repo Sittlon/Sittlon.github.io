@@ -15,7 +15,7 @@ function getRepositories() {
 
         data.sort(compare)
         for (const [i, value] of data.entries()) {
-            if (value.name == "Sittlon.github.io" || value.name == "github-readme-stats" || value.name == "Sittlon")
+            if (value.name == "Sittlon.github.io" || value.name == "github-readme-stats" || value.name == "Sittlon" || value.name == "imgui-node-editor")
                 continue;
             slider = document.getElementById("slider-projects")
             listItemRepo = document.createElement('li')
@@ -25,11 +25,8 @@ function getRepositories() {
             if (i == 1) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-center")
             }
-            if (i == 2) {
-                listItemRepo.setAttribute("class", "slider--item slider--item-right")
-            }
             if (i > 2) {
-                listItemRepo.setAttribute("class", "slider--item slider--item")
+                listItemRepo.setAttribute("class", "slider--item slider--item-right")
             }
             a = document.createElement('a')
             p1 = document.createElement('p')

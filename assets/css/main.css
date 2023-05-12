@@ -967,7 +967,7 @@ body {
 
 .work--lockup .slider--item-right {
     top: 50%;
-    right: 0;
+    left: 80%;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     display: block
