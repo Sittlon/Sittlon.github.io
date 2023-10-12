@@ -25,7 +25,7 @@ function getRepositories() {
             if (i == 1) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-center")
             }
-            if (i > 2) {
+            if (i > 1) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-right")
             }
             a = document.createElement('a')
