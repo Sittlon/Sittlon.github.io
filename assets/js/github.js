@@ -15,17 +15,21 @@ function getRepositories() {
 
         data.sort(compare)
         for (const [i, value] of data.entries()) {
-            if (value.name == "Sittlon.github.io" || value.name == "github-readme-stats" || value.name == "Sittlon" || value.name == "imgui-node-editor")
+            if (value.name == "Sittlon.github.io" || value.fork == true || value.name == "Sittlon")
                 continue;
             slider = document.getElementById("slider-projects")
             listItemRepo = document.createElement('li')
+            console.log(value)
             if (i == 0) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-left")
             }
             if (i == 1) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-center")
             }
-            if (i > 1) {
+            if (i == 2) {
+                listItemRepo.setAttribute("class", "slider--item slider--item-right")
+            }
+            if(i > 2) {
                 listItemRepo.setAttribute("class", "slider--item slider--item-right")
             }
             a = document.createElement('a')
