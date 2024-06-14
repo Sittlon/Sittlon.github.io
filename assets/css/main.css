@@ -1306,6 +1306,37 @@ body {
     }
 }
 
+.apps {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat
+}
+
+.apps--lockup {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 900px;
+    max-width: 75%;
+    height: 100%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    margin: 0 auto
+}
+
 .contact {
     position: fixed;
     top: 0;
@@ -1338,13 +1369,13 @@ body {
 }
 
 @media (max-width: 1180px) {
-    .contact--lockup {
+    .contact--lockup, .apps--lockup {
         max-width: 90%
     }
 }
 
 @media (max-width: 767px) {
-    .contact--lockup {
+    .contact--lockup, .apps--lockup {
         -webkit-box-pack: center;
         -webkit-justify-content: center;
         -ms-flex-pack: center;
@@ -1352,7 +1383,7 @@ body {
     }
 }
 
-.contact--lockup .modal {
+.contact--lockup .modal, .apps--lockup .modal {
     padding: 45px 45px;
     text-align: center;
     background-color: #0c0c0c;
@@ -1360,7 +1391,9 @@ body {
 }
 
 .contact--lockup .modal--information p,
-.contact--lockup .modal--information a {
+.contact--lockup .modal--information a,
+.apps--lockup .modal--information p,
+.apps--lockup .modal--information a {
     display: block;
     margin: 14px 0;
     text-decoration: none;
@@ -1368,11 +1401,11 @@ body {
     font-weight: 700
 }
 
-.contact--lockup .modal--information p {
+.contact--lockup .modal--information p, .apps--lockup .modal--information p {
     margin-top: 0
 }
 
-.contact--lockup .modal--options {
+.contact--lockup .modal--options, .apps--lockup .modal--options {
     margin: 0;
     padding: 0;
     list-style: none
