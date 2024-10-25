@@ -1,0 +1,38 @@
+body {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    font-family: "Courier New", Courier, monospace;
+    margin: 0;
+    padding: 0;
+}
+header {
+    text-align: center;
+    padding: 2em;
+}
+.subtitle {
+    color: #6a9955; /* Green comment color */
+}
+h2 {
+    color: #569cd6; /* Blue syntax highlight color */
+    margin-left: 1em;
+}
+.project h3 {
+    color: #9cdcfe; /* Lighter blue color for project names */
+}
+footer {
+    text-align: center;
+    padding: 1em;
+    color: #808080;
+}
+section {
+    padding: 2em;
+    border-bottom: 1px solid #333;
+}
+ul {
+    list-style-type: none;
+    padding-left: 1.5em;
+}
+ul li::before {
+    content: '>> ';
+    color: #6a9955;
+}
