@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#1D2D44"/>
+  <g transform="translate(600,315)" text-anchor="middle">
+    <text fill="#64FFDA" font-size="45" font-family="Arial" y="-120">Automated Shipping</text>
+    <text fill="#64FFDA" font-size="45" font-family="Arial" y="-60">Documentation System</text>
+    <g transform="translate(0,40)">
+      <rect x="-180" y="-50" width="360" height="100" fill="none" stroke="#64FFDA" stroke-width="3" rx="10"/>
+      <circle cx="-120" cy="0" r="30" fill="#8892B0"/>
+      <circle cx="0" cy="0" r="30" fill="#8892B0"/>
+      <circle cx="120" cy="0" r="30" fill="#8892B0"/>
+      <path d="M-180,80 L180,80" stroke="#64FFDA" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
