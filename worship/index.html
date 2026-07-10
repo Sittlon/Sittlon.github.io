@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="robots" content="noindex">
+<title>Sleep Token – Die Chronik des Schlafenden Gottes</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%E2%98%BE%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./lib/three.module.js" } }
+</script>
+</head>
+<body>
+
+<!-- 3D-Bühne -->
+<div id="app"></div>
+
+<!-- Überblendung -->
+<div id="fader" class="black"></div>
+
+<!-- ============ HAUPTMENÜ ============ -->
+<div id="screen-menu" class="screen">
+  <div class="menu-inner">
+    <div class="menu-sigil">☾</div>
+    <h2 class="menu-over">SLEEP TOKEN</h2>
+    <h1 class="menu-title" data-i18n-html="menu_title">Die Chronik des<br>Schlafenden Gottes</h1>
+    <div class="menu-buttons">
+      <button id="btn-new" class="mbtn" data-i18n="btn_new">Neues Spiel</button>
+      <button id="btn-continue" class="mbtn" data-i18n="btn_continue">Fortsetzen</button>
+      <button id="btn-load" class="mbtn" data-i18n="btn_load">Laden</button>
+      <button id="btn-achievements" class="mbtn small" data-i18n="btn_achievements">Erfolge</button>
+      <button id="btn-settings" class="mbtn small" data-i18n="btn_settings">Einstellungen</button>
+      <button id="btn-help" class="mbtn small" data-i18n="btn_help">Steuerung &amp; Info</button>
+    </div>
+    <div class="menu-lang">
+      <button id="lang-de" class="langbtn">Deutsch</button>
+      <button id="lang-en" class="langbtn">English</button>
+    </div>
+    <div class="menu-footer">
+      <span id="menu-version"></span><br>
+      <span data-i18n="menu_footer">Inoffizielles Fan-Projekt · keine Originalmusik, keine Songtexte · nur für den privaten Gebrauch</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LADEBILDSCHIRM ============ -->
+<div id="screen-loading" class="screen hidden">
+  <div class="loading-inner">
+    <div class="menu-sigil pulse">☾</div>
+    <div id="loading-text" data-i18n="loading_text">Die Traumlande erwachen …</div>
+  </div>
+</div>
+
+<!-- ============ SPIEL-HUD ============ -->
+<div id="screen-game" class="screen hidden">
+
+  <!-- Statusleisten oben links -->
+  <div id="status">
+    <div id="level-badge"><span id="level-num">1</span></div>
+    <div id="bars">
+      <div class="bar hp"><div id="hp-fill"></div><span id="hp-text"></span></div>
+      <div class="bar en"><div id="en-fill"></div></div>
+      <div class="bar xp"><div id="xp-fill"></div></div>
+    </div>
+    <div id="frag-badge" title="Erinnerungsfragmente">💠 <span id="frag-count">0</span>/30</div>
+  </div>
+
+  <!-- Charakter-Chips -->
+  <div id="char-chips"></div>
+
+  <!-- Fähigkeit unten rechts -->
+  <div id="ability-box">
+    <div id="ability-key"><span>Q</span><div id="ability-cd"></div></div>
+    <div id="ability-name">Klagelied</div>
+  </div>
+
+  <!-- Quest-Tracker -->
+  <div id="tracker"></div>
+
+  <!-- Interaktions-Hinweis -->
+  <div id="prompt" class="hidden"></div>
+
+  <!-- Fadenkreuz -->
+  <div id="crosshair">·</div>
+
+  <!-- Zonen-Banner & Kapitelkarte -->
+  <div id="zone-banner"></div>
+  <div id="chapter-card"></div>
+
+  <!-- Boss-Leiste -->
+  <div id="boss-bar" class="hidden">
+    <div id="boss-name"></div>
+    <div class="boss-track"><div id="boss-fill"></div></div>
+  </div>
+
+  <!-- Schadens-Vignette -->
+  <div id="vignette"></div>
+
+  <!-- Toasts -->
+  <div id="toasts"></div>
+
+  <!-- ============ TOUCH-STEUERUNG (nur Touch-Geräte) ============ -->
+  <div id="touch-ui">
+    <!-- virtueller Joystick (Position folgt dem Finger) -->
+    <div id="joystick"><div id="joystick-knob"></div></div>
+    <!-- Action-Buttons unten rechts -->
+    <button id="tb-ability" class="tbtn" aria-label="Fähigkeit">✦</button>
+    <button id="tb-dodge" class="tbtn" aria-label="Ausweichen">»</button>
+    <button id="tb-attack" class="tbtn big" aria-label="Angriff">⚔</button>
+    <!-- Interagieren (erscheint bei NPCs/Portalen) -->
+    <button id="tb-interact" class="tbtn wide hidden" aria-label="Interagieren">✦ E</button>
+    <!-- Pause -->
+    <button id="tb-pause" class="tbtn mini" aria-label="Pause">❚❚</button>
+  </div>
+</div>
+
+<!-- ============ DIALOGBOX ============ -->
+<div id="dialog" class="hidden">
+  <div id="dialog-name"></div>
+  <div id="dialog-text"></div>
+  <div id="dialog-choices" class="hidden"></div>
+  <div id="dialog-hint" data-i18n="dialog_hint">Weiter mit Klick / Leertaste</div>
+</div>
+
+<!-- ============ ZWISCHENSEQUENZ ============ -->
+<div id="cutscene" class="hidden">
+  <div class="bar-top"></div>
+  <div id="scene-text"></div>
+  <div class="bar-bottom"></div>
+  <div class="scene-hint" data-i18n="dialog_hint">Weiter mit Klick / Leertaste</div>
+</div>
+
+<!-- ============ FAN-HINWEIS (vor Spielbeginn) ============ -->
+<div id="intro-note" class="hidden">
+  <div class="note-inner">
+    <div class="menu-sigil">☾</div>
+    <h2 data-i18n="disclaimer_title">Ein Fan-Projekt</h2>
+    <p id="intro-note-body" data-i18n-html="disclaimer_body"></p>
+    <button id="btn-intro-note" class="mbtn" data-i18n="disclaimer_continue">Die Chronik beginnen</button>
+  </div>
+</div>
+
+<!-- ============ PANEL (Questlog, Erfolge, Speichern, …) ============ -->
+<div id="panel" class="hidden">
+  <div id="panel-box">
+    <div id="panel-head">
+      <span id="panel-title"></span>
+      <button id="panel-close">✕</button>
+    </div>
+    <div id="panel-content"></div>
+  </div>
+</div>
+
+<!-- ============ PAUSE ============ -->
+<div id="pause-menu" class="hidden">
+  <div class="pause-inner">
+    <h2 data-i18n="pause_title">Pause</h2>
+    <button id="btn-resume" class="mbtn" data-i18n="btn_resume">Fortsetzen</button>
+    <button id="btn-p-save" class="mbtn" data-i18n="btn_save">Speichern</button>
+    <button id="btn-p-load" class="mbtn" data-i18n="btn_load">Laden</button>
+    <button id="btn-p-quests" class="mbtn small" data-i18n="btn_quests">Questlog (J)</button>
+    <button id="btn-p-achievements" class="mbtn small" data-i18n="btn_achievements">Erfolge</button>
+    <button id="btn-p-settings" class="mbtn small" data-i18n="btn_settings">Einstellungen</button>
+    <button id="btn-p-help" class="mbtn small" data-i18n="btn_controls">Steuerung</button>
+    <button id="btn-p-menu" class="mbtn small" data-i18n="btn_menu">Zum Hauptmenü</button>
+  </div>
+</div>
+
+<!-- ============ TOD ============ -->
+<div id="death-screen" class="hidden">
+  <div class="death-inner">
+    <h2 data-i18n="death_title">VOM TRAUM VERSCHLUNGEN</h2>
+    <p data-i18n="death_text">Die Traumlande geben dich noch nicht frei.</p>
+    <button id="btn-respawn" class="mbtn" data-i18n="btn_respawn">Wieder erwachen</button>
+  </div>
+</div>
+
+<!-- ============ ENDE: ENTSCHEIDUNG ============ -->
+<div id="ending-choice" class="hidden">
+  <div class="ending-inner">
+    <h2 data-i18n="ending_decision_title">DIE LETZTE ENTSCHEIDUNG</h2>
+    <p class="xs dim" data-i18n="ending_decision_sub">Was geschieht mit dem Schlafenden Gott?</p>
+    <div id="ending-options"></div>
+  </div>
+</div>
+
+<!-- ============ ABSPANN ============ -->
+<div id="credits" class="hidden">
+  <div class="credits-inner">
+    <div id="credits-true" class="hidden" data-i18n="credits_true">✦ DAS WAHRE ENDE ✦</div>
+    <h2 id="credits-title"></h2>
+    <div class="credits-scroll">
+      <p class="cred-big" data-i18n-html="menu_title_credits">SLEEP TOKEN<br>DIE CHRONIK DES SCHLAFENDEN GOTTES</p>
+      <p data-i18n="credits_sub1">Ein Fan-RPG in 6 Kapiteln und 51 Quests</p>
+      <p class="dim" data-i18n-html="credits_chapters">PROLOG — ONE<br>KAPITEL I — TWO<br>KAPITEL II — SUNDOWNING<br>KAPITEL III — THIS PLACE WILL BECOME YOUR TOMB<br>KAPITEL IV — TAKE ME BACK TO EDEN<br>KAPITEL V — EVEN IN ARCADIA<br>FINALE — INFINITE BATHS</p>
+      <p data-i18n="credits_cast">Gespielt von: Vessel · II · III · IV</p>
+      <p class="dim" data-i18n-html="credits_disclaimer">Inoffizielles, nicht-kommerzielles Fan-Projekt,<br>inspiriert von der Band Sleep Token.<br>Enthält keine Originalmusik und keine Songtexte.</p>
+      <p class="cred-big gold">WORSHIP.</p>
+    </div>
+    <button id="btn-credits-close" class="mbtn" data-i18n="btn_credits_close">Zurück in die Traumlande</button>
+  </div>
+</div>
+
+<!-- ============ FATALER FEHLER ============ -->
+<div id="fatal" class="hidden">
+  <h2 data-i18n="fatal_title">Das Ritual ist fehlgeschlagen</h2>
+  <p></p>
+  <p class="xs" data-i18n="fatal_text">Bitte nutze einen aktuellen Browser (Chrome, Firefox, Safari) und starte das Spiel über „Spiel starten.command" bzw. einen lokalen Webserver.</p>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
