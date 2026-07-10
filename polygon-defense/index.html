@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Polygon Defense — Neon Tower Defense</title>
+  <meta name="description" content="Polygon Defense: Neon-Tower-Defense mit geometrischen Gegnern. Baue Türme, überlebe endlose Wellen und schalte mächtige Upgrades frei." />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">
+        <img src="icon.svg" alt="" width="34" height="34" />
+        <span class="wordmark">POLYGON <span>DEFENSE</span></span>
+      </a>
+      <nav class="site-nav">
+        <a class="pill pill--green" href="support.html">Support</a>
+        <a class="pill pill--cyan" href="datenschutz.html">Datenschutz</a>
+        <a class="pill pill--purple" href="impressum.html">Impressum</a>
+        <a class="pill pill--muted" href="https://rob-code.dev/">rob-code.dev</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="hero">
+      <img class="logo" src="icon.svg" alt="Polygon Defense Logo" width="104" height="104" />
+      <h1>POLYGON<br /><span class="accent">DEFENSE</span></h1>
+      <span class="hero-stats">
+        <span class="red">&#10084; 20</span>
+        <span class="yellow">&#9679; 5430</span>
+        <span class="purple">&#9650; 419</span>
+      </span>
+      <p class="tagline">
+        Neon-Tower-Defense mit geometrischen Gegnern: Baue Türme entlang des
+        Pfades, überlebe endlose Wellen und schalte mächtige Upgrades frei.
+      </p>
+
+      <div class="store-buttons">
+        <!-- TODO: Sobald die App live ist, die <span>-Buttons durch Links ersetzen:
+             <a class="store-btn store-btn--cyan" href="HIER-APP-STORE-URL"><span class="go">&#9654;</span> App Store</a>
+             <a class="store-btn store-btn--green" href="HIER-GOOGLE-PLAY-URL"><span class="go">&#9654;</span> Google Play</a> -->
+        <span class="store-btn store-btn--cyan store-btn--soon"><span class="go">&#9654;</span> App Store</span>
+        <span class="store-btn store-btn--green store-btn--soon"><span class="go">&#9654;</span> Google Play</span>
+      </div>
+      <p class="store-note">Bald im App Store und bei Google Play erhältlich.</p>
+    </div>
+
+    <h2 id="spiel">Das Spiel</h2>
+    <p>
+      In <strong>Polygon Defense</strong> rücken Welle für Welle geometrische
+      Gegner auf deinen Kern vor. Platziere Türme an den richtigen Stellen,
+      verbessere Schaden, Tempo und Reichweite und entscheide im richtigen
+      Moment: weiter ausbauen oder die nächste Welle rushen? Zwischen den Runs
+      sammelst du dauerhafte Boni — für den nächsten Anlauf auf deine beste Welle.
+    </p>
+
+    <h2 id="screenshots">Screenshots</h2>
+    <div class="gallery">
+      <figure>
+        <a href="images/full/01_gameplay.png" target="_blank" rel="noopener">
+          <img src="images/thumb/01_gameplay.png" alt="Gameplay: Türme verteidigen den Pfad gegen anrückende Polygone" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Gameplay</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/02_tower_upgrades.png" target="_blank" rel="noopener">
+          <img src="images/thumb/02_tower_upgrades.png" alt="Turm-Upgrades: Schaden, Tempo und Reichweite verbessern" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Turm-Upgrades</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/03_tasks_rewards.png" target="_blank" rel="noopener">
+          <img src="images/thumb/03_tasks_rewards.png" alt="Aufgaben und Belohnungen im Überblick" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Aufgaben &amp; Belohnungen</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/04_meta_upgrades.png" target="_blank" rel="noopener">
+          <img src="images/thumb/04_meta_upgrades.png" alt="Dauerhafte Upgrades zwischen den Runs" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Upgrades</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/05_cards.png" target="_blank" rel="noopener">
+          <img src="images/thumb/05_cards.png" alt="Sammelbare Karten mit dauerhaften Boni" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Karten</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/06_research.png" target="_blank" rel="noopener">
+          <img src="images/thumb/06_research.png" alt="Forschung: neue Boni freischalten" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Forschung</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/07_shop.png" target="_blank" rel="noopener">
+          <img src="images/thumb/07_shop.png" alt="Shop mit Gems und Angeboten" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Shop</figcaption>
+      </figure>
+      <figure>
+        <a href="images/full/08_main_menu.png" target="_blank" rel="noopener">
+          <img src="images/thumb/08_main_menu.png" alt="Hauptmenü von Polygon Defense" width="640" height="854" loading="lazy" />
+        </a>
+        <figcaption>Hauptmenü</figcaption>
+      </figure>
+    </div>
+
+    <h2 id="features">Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <span class="shape shape--tri"></span>
+        <h3>Endlose Wellen</h3>
+        <p>Jede Welle wird stärker. Wie weit kommst du? Mit Rush-Option und
+          x2-Tempo für alle, die es eilig haben.</p>
+      </div>
+      <div class="feature-card">
+        <span class="shape shape--square"></span>
+        <h3>Türme &amp; Upgrades</h3>
+        <p>Von der Tri-Kanone bis zum Hexa-Froster: Verbessere Schaden, Tempo
+          und Reichweite — oder lass die Auto-Upgrade-Funktion arbeiten.</p>
+      </div>
+      <div class="feature-card">
+        <span class="shape shape--penta"></span>
+        <h3>Mächtige Fähigkeiten</h3>
+        <p>Zünde Overdrive, Amoklauf oder Kraftfeld, wenn es brenzlig wird.</p>
+      </div>
+      <div class="feature-card">
+        <span class="shape shape--hexa"></span>
+        <h3>Forschung &amp; Karten</h3>
+        <p>Dauerhafte Boni zwischen den Runs: Upgrades, Forschung und
+          sammelbare Karten machen jeden Anlauf stärker.</p>
+      </div>
+      <div class="feature-card">
+        <span class="shape shape--diamond"></span>
+        <h3>Aufgaben &amp; Belohnungen</h3>
+        <p>Tägliche Ziele, Aufgaben und Offline-Belohnungen warten auf dich.</p>
+      </div>
+      <div class="feature-card">
+        <span class="shape shape--circle"></span>
+        <h3>Ohne Konto spielbar</h3>
+        <p>Kein Zwang, keine Registrierung: Dein Spielstand bleibt lokal auf
+          deinem Gerät — auch offline spielbar.</p>
+      </div>
+    </div>
+
+    <h2 id="tuerme">Die Türme</h2>
+    <div class="tower-bar">
+      <div class="tower-card tower-card--red">
+        <span class="shape shape--tri"></span>
+        <div class="name">Tri-Kanone</div>
+        <div class="cost">50 &#9679;</div>
+      </div>
+      <div class="tower-card tower-card--yellow">
+        <span class="shape shape--square"></span>
+        <div class="name">Quadrat-Moerser</div>
+        <div class="cost">110 &#9679;</div>
+      </div>
+      <div class="tower-card tower-card--blue">
+        <span class="shape shape--penta"></span>
+        <div class="name">Penta-Sniper</div>
+        <div class="cost">160 &#9679;</div>
+      </div>
+      <div class="tower-card tower-card--cyan">
+        <span class="shape shape--hexa"></span>
+        <div class="name">Hexa-Froster</div>
+        <div class="cost">130 &#9679;</div>
+      </div>
+      <div class="tower-card tower-card--locked">
+        <div class="q">?</div>
+        <div class="name">Weitere freischalten</div>
+        <div class="cost">&nbsp;</div>
+      </div>
+    </div>
+
+    <h2 id="faehigkeiten">Fähigkeiten</h2>
+    <div class="ability-row">
+      <span class="ability ability--cyan">Overdrive</span>
+      <span class="ability">Amoklauf</span>
+      <span class="ability">Kraftfeld</span>
+    </div>
+
+    <h2 id="kontakt">Fragen oder Feedback?</h2>
+    <div class="card card--cyan center">
+      <p>
+        Du hast ein Problem, einen Vorschlag oder einfach Feedback zum Spiel?
+        Schau auf der Support-Seite vorbei — wir helfen gerne weiter.
+      </p>
+      <p><a class="btn" href="support.html">Zum Support</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Robert Sittig
+    <span class="sep">·</span> <a href="support.html">Support</a>
+    <span class="sep">·</span> <a href="datenschutz.html">Datenschutz</a>
+    <span class="sep">·</span> <a href="impressum.html">Impressum</a>
+    <span class="sep">·</span> <a href="https://rob-code.dev/">rob-code.dev</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,626 @@
+/* ===================================================
+   Polygon Defense — Rechtliches (Datenschutz/Impressum)
+   Farbwelt & Look der App: dunkles Navy, Neon-Akzente,
+   Karten mit farbigen Rahmen, weiche Radien.
+   =================================================== */
+
+:root {
+  --blue: #4a86ff;
+  --bg: #0e1120;
+  --bg-deep: #0a0d18;
+  --card: #151929;
+  --card-2: #1a1f33;
+  --line: #272e4a;
+  --text: #eef1fb;
+  --muted: #a7aec8;
+  --red: #ff3b5c;
+  --yellow: #ffcb3d;
+  --purple: #a06bf8;
+  --cyan: #46c2ff;
+  --green: #3ddc84;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* dezente schwebende Polygone im Hintergrund, wie im Hauptmenü */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(420px 420px at 85% 8%, rgba(160, 107, 248, 0.07), transparent 70%),
+    radial-gradient(380px 380px at 8% 85%, rgba(70, 194, 255, 0.06), transparent 70%),
+    radial-gradient(300px 300px at 15% 20%, rgba(255, 59, 92, 0.05), transparent 70%);
+}
+
+/* ---------- Kopfzeile / Navigation ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 13, 24, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0.7rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  margin-right: auto;
+}
+
+.brand img,
+.brand svg { width: 34px; height: 34px; display: block; }
+
+.brand .wordmark {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-size: 1.02rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.brand .wordmark span { color: var(--cyan); }
+
+.site-nav {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons im Spiel-Stil: dunkle Karte, farbiger 2px-Rahmen */
+.pill {
+  display: inline-block;
+  padding: 0.45rem 1.05rem;
+  border-radius: 12px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s, box-shadow 0.15s;
+}
+
+.pill:hover { color: var(--text); }
+
+.pill--cyan:hover,
+.pill--cyan.active {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 14px rgba(70, 194, 255, 0.18);
+}
+
+.pill--purple:hover,
+.pill--purple.active {
+  border-color: var(--purple);
+  color: var(--purple);
+  box-shadow: 0 0 14px rgba(160, 107, 248, 0.18);
+}
+
+.pill--green:hover,
+.pill--green.active {
+  border-color: var(--green);
+  color: var(--green);
+  box-shadow: 0 0 14px rgba(61, 220, 132, 0.18);
+}
+
+.pill--muted:hover {
+  border-color: var(--muted);
+}
+
+/* ---------- Inhalt ---------- */
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.2rem 1.25rem 3rem;
+  position: relative;
+}
+
+h1 {
+  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.4rem;
+}
+
+h1 .accent { color: var(--cyan); }
+
+/* „Stand“-Plakette wie die Wellen-Anzeige im Spiel */
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.95rem;
+  border-radius: 12px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin: 0.4rem 0 1.6rem;
+}
+
+/* Abschnittsüberschriften mit Polygon-Markern in den Spielfarben */
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.22rem;
+  font-weight: 700;
+  margin: 2.4rem 0 0.7rem;
+  scroll-margin-top: 5rem;
+}
+
+h2::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  background: var(--cyan);
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+}
+
+/* Farb- und Formrotation: Dreieck, Quadrat, Fünfeck, Sechseck, Raute */
+h2:nth-of-type(5n + 1)::before {
+  background: var(--red);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+h2:nth-of-type(5n + 2)::before {
+  background: var(--yellow);
+  clip-path: none;
+  border-radius: 3px;
+}
+h2:nth-of-type(5n + 3)::before {
+  background: var(--cyan);
+  clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%);
+}
+h2:nth-of-type(5n + 4)::before {
+  background: var(--purple);
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%);
+}
+h2:nth-of-type(5n + 5)::before {
+  background: var(--green);
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+h3 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text);
+  margin: 1.5rem 0 0.5rem;
+}
+
+p, li { color: var(--muted); overflow-wrap: break-word; }
+
+strong { color: var(--text); font-weight: 700; }
+
+a { color: var(--cyan); text-decoration: none; overflow-wrap: anywhere; }
+a:hover { text-decoration: underline; }
+
+ul { padding-left: 1.3rem; }
+li { margin: 0.3rem 0; }
+li::marker { color: var(--cyan); }
+
+/* Hervorgehobene Karte (z. B. „Das Wichtigste in Kürze“) */
+.card {
+  background: var(--card);
+  border: 2px solid var(--green);
+  border-radius: 16px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.2rem 0;
+  box-shadow: 0 0 18px rgba(61, 220, 132, 0.08);
+}
+
+.card--plain { border-color: var(--line); box-shadow: none; }
+
+.card p:first-child, .card ul:first-child { margin-top: 0.2rem; }
+.card p:last-child, .card ul:last-child { margin-bottom: 0.2rem; }
+
+/* Adressblock */
+address {
+  font-style: normal;
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 1rem 1.3rem;
+  margin: 1rem 0;
+  color: var(--text);
+  line-height: 1.8;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+/* ---------- Landing (index) im Stil des Hauptmenüs ---------- */
+
+.menu {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.25rem;
+}
+
+.menu .logo { width: 96px; height: 96px; margin-bottom: 1.4rem; }
+
+.menu h1 { letter-spacing: 0.08em; line-height: 1.15; }
+
+.menu .sub { color: var(--muted); margin: 0.3rem 0 2.2rem; }
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.menu-btn {
+  display: block;
+  padding: 1.05rem 1.4rem;
+  border-radius: 16px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  color: var(--text);
+  font-size: 1.12rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+
+.menu-btn:hover { transform: translateY(-1px); text-decoration: none; }
+
+.menu-btn--cyan { border-color: var(--cyan); }
+.menu-btn--cyan:hover { box-shadow: 0 0 18px rgba(70, 194, 255, 0.25); }
+
+.menu-btn--purple { border-color: var(--purple); }
+.menu-btn--purple:hover { box-shadow: 0 0 18px rgba(160, 107, 248, 0.25); }
+
+.menu .back {
+  margin-top: 2.4rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.menu .back:hover { color: var(--cyan); }
+
+/* ---------- Fußzeile ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 1.25rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--cyan); }
+
+.site-footer .sep { margin: 0 0.5rem; opacity: 0.5; }
+
+/* ---------- Marketing-Seite (Hero, Features, Türme) ---------- */
+
+.hero {
+  text-align: center;
+  padding: 2.6rem 0 1rem;
+}
+
+.hero .logo { width: 104px; height: 104px; }
+
+.hero h1 {
+  font-size: clamp(2rem, 7vw, 2.9rem);
+  letter-spacing: 0.09em;
+  line-height: 1.12;
+  margin: 1rem 0 0.9rem;
+}
+
+.hero .tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 36rem;
+  margin: 0.9rem auto 0;
+}
+
+/* kleine Statuszeile wie im Spiel (Herzen, Münzen, Punkte) */
+.hero-stats {
+  display: inline-flex;
+  gap: 1.1rem;
+  padding: 0.4rem 1.1rem;
+  border-radius: 12px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.hero-stats .red { color: var(--red); }
+.hero-stats .yellow { color: var(--yellow); }
+.hero-stats .purple { color: var(--purple); }
+
+.store-buttons {
+  display: flex;
+  gap: 0.9rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.7rem;
+}
+
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 14px;
+  background: var(--card);
+  border: 2px solid var(--line);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.store-btn .go { font-size: 0.8em; }
+.store-btn--cyan .go { color: var(--cyan); }
+.store-btn--green .go { color: var(--green); }
+
+a.store-btn--cyan:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 16px rgba(70, 194, 255, 0.22);
+  text-decoration: none;
+}
+
+a.store-btn--green:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 16px rgba(61, 220, 132, 0.22);
+  text-decoration: none;
+}
+
+/* ausgegraut wie der „Rush“-Button im Spiel, solange es keinen Store-Link gibt */
+.store-btn--soon { opacity: 0.55; cursor: default; }
+
+.store-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.9rem;
+}
+
+/* Polygon-Formen in den Spielfarben */
+.shape { display: block; width: 36px; height: 36px; }
+.shape--tri { background: var(--red); clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.shape--square { background: var(--yellow); border-radius: 6px; }
+.shape--penta { background: var(--blue); clip-path: polygon(50% 0, 100% 38%, 81% 100%, 19% 100%, 0 38%); }
+.shape--hexa { background: var(--cyan); clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%); }
+.shape--diamond { background: var(--green); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.shape--circle { background: var(--purple); border-radius: 50%; }
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+
+.feature-card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 1.15rem 1.25rem;
+}
+
+.feature-card .shape { margin-bottom: 0.75rem; width: 30px; height: 30px; }
+.feature-card h3 { margin: 0 0 0.35rem; font-size: 1.02rem; }
+.feature-card p { margin: 0; font-size: 0.95rem; }
+
+/* Turm-Leiste wie die Bau-Leiste im Spiel */
+.tower-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+.tower-card {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 1.1rem 0.9rem;
+  text-align: center;
+}
+
+.tower-card .shape { margin: 0 auto 0.65rem; width: 42px; height: 42px; }
+.tower-card .name { font-weight: 700; font-size: 0.95rem; }
+.tower-card .cost { color: var(--yellow); font-weight: 700; font-size: 0.92rem; margin-top: 0.15rem; }
+
+.tower-card--red { border-color: rgba(255, 59, 92, 0.55); }
+.tower-card--yellow { border-color: rgba(255, 203, 61, 0.55); }
+.tower-card--blue { border-color: rgba(74, 134, 255, 0.55); }
+.tower-card--cyan { border-color: rgba(70, 194, 255, 0.55); }
+
+.tower-card--locked .q {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--muted);
+  line-height: 42px;
+  height: 42px;
+  margin-bottom: 0.65rem;
+}
+
+/* Fähigkeiten-Buttons wie im Spiel („▶ Overdrive“) */
+.ability-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.2rem 0;
+}
+
+.ability {
+  padding: 0.6rem 1.2rem;
+  border-radius: 14px;
+  background: var(--card);
+  border: 2px solid var(--purple);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.ability::before { content: "▶ "; font-size: 0.85em; color: var(--purple); }
+.ability--cyan { border-color: var(--cyan); }
+.ability--cyan::before { color: var(--cyan); }
+
+/* Screenshot-Galerie: horizontales Karussell wie im Store */
+.gallery {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.4rem 0.2rem 1rem;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.gallery figure {
+  flex: 0 0 auto;
+  width: min(68vw, 270px);
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+.gallery a {
+  display: block;
+  border-radius: 16px;
+  border: 2px solid var(--line);
+  overflow: hidden;
+  background: var(--card);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gallery figcaption {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-top: 0.55rem;
+}
+
+.gallery figure:nth-child(5n + 1) a { border-color: rgba(255, 59, 92, 0.45); }
+.gallery figure:nth-child(5n + 2) a { border-color: rgba(255, 203, 61, 0.45); }
+.gallery figure:nth-child(5n + 3) a { border-color: rgba(70, 194, 255, 0.45); }
+.gallery figure:nth-child(5n + 4) a { border-color: rgba(160, 107, 248, 0.45); }
+.gallery figure:nth-child(5n + 5) a { border-color: rgba(61, 220, 132, 0.45); }
+
+.gallery figure:nth-child(5n + 1) a:hover { border-color: var(--red); box-shadow: 0 0 16px rgba(255, 59, 92, 0.25); }
+.gallery figure:nth-child(5n + 2) a:hover { border-color: var(--yellow); box-shadow: 0 0 16px rgba(255, 203, 61, 0.25); }
+.gallery figure:nth-child(5n + 3) a:hover { border-color: var(--cyan); box-shadow: 0 0 16px rgba(70, 194, 255, 0.25); }
+.gallery figure:nth-child(5n + 4) a:hover { border-color: var(--purple); box-shadow: 0 0 16px rgba(160, 107, 248, 0.25); }
+.gallery figure:nth-child(5n + 5) a:hover { border-color: var(--green); box-shadow: 0 0 16px rgba(61, 220, 132, 0.25); }
+
+/* ---------- Support-Seite (FAQ, Kontakt) ---------- */
+
+.faq details {
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  padding: 0.85rem 1.15rem;
+  margin: 0.75rem 0;
+}
+
+.faq details[open] {
+  border-color: var(--cyan);
+  box-shadow: 0 0 14px rgba(70, 194, 255, 0.1);
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  list-style: none;
+}
+
+.faq summary::-webkit-details-marker { display: none; }
+
+.faq summary::before {
+  content: "▶";
+  color: var(--cyan);
+  font-size: 0.75em;
+  flex: 0 0 auto;
+  transition: transform 0.15s;
+}
+
+.faq details[open] summary::before { transform: rotate(90deg); }
+
+.faq details p,
+.faq details ul { margin: 0.7rem 0 0.25rem; font-size: 0.96rem; }
+
+.card--cyan {
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px rgba(70, 194, 255, 0.08);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  border-radius: 14px;
+  background: var(--card);
+  border: 2px solid var(--green);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn:hover {
+  box-shadow: 0 0 16px rgba(61, 220, 132, 0.25);
+  text-decoration: none;
+}
+
+.center { text-align: center; }
+
+/* ---------- Druck ---------- */
+
+@media print {
+  body { background: #fff; color: #000; }
+  body::before { display: none; }
+  .site-header, .site-footer { display: none; }
+  p, li { color: #222; }
+  strong, h1, h2, h3, address { color: #000; }
+  a { color: #000; text-decoration: underline; }
+  .card, address { border-color: #999; box-shadow: none; background: #fff; }
+}
