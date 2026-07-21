@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'; frame-src 'none'; object-src 'none'" />
+  <title>Delete online account — Poly Pew Pew</title>
+  <meta name="description" content="Public instructions and contact path for deleting the anonymous Poly Pew Pew online account and associated data." />
+  <link rel="canonical" href="https://rob-code.dev/poly-pew-pew/en/account-deletion/" />
+  <link rel="alternate" hreflang="de" href="https://rob-code.dev/poly-pew-pew/konto-loeschen/" />
+  <link rel="alternate" hreflang="en" href="https://rob-code.dev/poly-pew-pew/en/account-deletion/" />
+  <link rel="icon" type="image/svg+xml" href="../../icon.svg" />
+  <link rel="stylesheet" href="../../style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header"><div class="header-inner">
+    <a class="brand" href="../"><img src="../../icon.svg" alt="" /><span>POLY <span>PEW PEW</span></span></a>
+    <nav class="site-nav" aria-label="Main navigation"><a class="nav-link" href="../support/">Support</a><a class="nav-link" href="../privacy/">Privacy</a><a class="nav-link" href="./" aria-current="page">Delete account</a><a class="nav-link" href="../../impressum/">Legal notice</a><a class="nav-link lang-switch" href="../../konto-loeschen/" lang="de">DE</a></nav>
+  </div></header>
+
+  <main id="content">
+    <p class="eyebrow">Public deletion request</p>
+    <h1 class="legal-title">Delete your Poly Pew Pew <span class="accent">online account</span></h1>
+    <p class="lede">The online beta automatically creates an anonymous Firebase identity. You can request deletion of this account and its associated online data even if the app is no longer installed.</p>
+
+    <div class="notice notice--important"><p><strong>Important:</strong> A freely entered UID alone is not proof of ownership. We do not delete an account based only on an unverified identifier, so that nobody can have another person's account deleted.</p></div>
+
+    <h2 id="process">How to request deletion</h2>
+    <ol class="steps">
+      <li><strong>In the app:</strong> Once available in your version, use Settings → Privacy → Delete online account and confirm again. This in-app route must be available before store release.</li>
+      <li><strong>Through this website:</strong> Send an email with subject “Poly Pew Pew – Delete online account”. State the display name and—only if the app shows it under Privacy/Support—the anonymous UID or a support code. Never send the Firebase token.</li>
+      <li><strong>Secure verification:</strong> We acknowledge the request and arrange reasonable proof of control. Until the app generates a short-lived verification code, verification is handled individually; the UID alone does not trigger deletion.</li>
+      <li><strong>Deletion and confirmation:</strong> After verification, we delete or anonymise the attributable data set and send completion confirmation. Verified requests are handled without undue delay, normally within one month.</li>
+    </ol>
+    <p><a class="button button--danger" href="mailto:robertsittig1996@web.de?subject=Poly%20Pew%20Pew%20%E2%80%93%20Delete%20online%20account&amp;body=I%20want%20to%20delete%20my%20anonymous%20Poly%20Pew%20Pew%20online%20account%20and%20associated%20online%20data.%0A%0ADisplay%20name%3A%20%0APlatform%3A%20%0AApp%20version%3A%20%0AUID%20or%20support%20code%20(only%20if%20shown%20in%20the%20app)%3A%20%0A%0APlease%20tell%20me%20the%20secure%20verification%20step.">Start deletion request by email</a></p>
+    <p>Your email application opens when you click. This website does not itself transmit form data. If you want to withdraw a request before execution, reply to the acknowledgement as soon as possible.</p>
+
+    <h2 id="scope">What is deleted</h2>
+    <ul>
+      <li>the anonymous Firebase Authentication account and UID,</li>
+      <li>the UID-linked online profile with display name and character appearance,</li>
+      <li>attributable participant data in active or orphaned lobbies,</li>
+      <li>attributable match state, hit, kill and result data,</li>
+      <li>future synchronised profile/inventory data, where present,</li>
+      <li>deletion-process mapping and support data no longer required.</li>
+    </ul>
+    <p>If individual information is strictly needed for statutory evidence, prevention of specific abuse or legal claims, it is restricted and retained only until that purpose ends. Identifiers no longer needed are removed or anonymised. Apple or Google purchase records follow the stores' retention rules.</p>
+
+    <h2 id="separate">What does not happen automatically</h2>
+    <ul>
+      <li><strong>Local data:</strong> Delete it separately in the app, in your device's app-data controls or by uninstalling. We cannot access private device backups.</li>
+      <li><strong>Purchases:</strong> Account deletion is not a refund. Request a refund from Apple App Store or Google Play where appropriate.</li>
+      <li><strong>Request evidence:</strong> A minimal completion record may remain as long as needed to meet and demonstrate legal duties.</li>
+    </ul>
+
+    <h2 id="technical-step">Required in-app/backend step</h2>
+    <div class="notice"><p>The website provides a manual contact route but does not replace the technical deletion feature in the game. Before public store release, an easy-to-find in-app route, secure control verification (preferably a short-lived one-time code), privileged server-side deletion and cleanup for orphaned lobby/match data must be implemented and tested. Admin keys must never be placed in the browser or app.</p></div>
+    <p>More about processing and rights: <a href="../privacy/">Privacy policy</a>. Help with other issues: <a href="../support/">Support</a>.</p>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span>© 2026 Robert Sittig · Poly Pew Pew</span><nav class="footer-links" aria-label="Footer navigation"><a href="../support/">Support</a><a href="../privacy/">Privacy</a><a href="./">Delete account</a><a href="../../impressum/">Legal notice</a><a href="https://rob-code.dev/">rob-code.dev</a></nav></div></footer>
+</body>
+</html>

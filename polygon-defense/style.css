@@ -223,6 +223,12 @@ strong { color: var(--text); font-weight: 700; }
 a { color: var(--cyan); text-decoration: none; overflow-wrap: anywhere; }
 a:hover { text-decoration: underline; }
 
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 ul { padding-left: 1.3rem; }
 li { margin: 0.3rem 0; }
 li::marker { color: var(--cyan); }

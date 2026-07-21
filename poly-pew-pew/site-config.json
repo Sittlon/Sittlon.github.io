@@ -1,0 +1,29 @@
+{
+  "appName": "Poly Pew Pew",
+  "platforms": ["Android", "iOS"],
+  "publicVersion": "shown in the app settings and store listing",
+  "lastUpdated": "2026-07-21",
+  "baseUrl": "https://rob-code.dev/poly-pew-pew/",
+  "controller": {
+    "name": "Robert Sittig",
+    "address": "Kirschberg 20, 06846 Dessau, Deutschland",
+    "email": "robertsittig1996@web.de"
+  },
+  "support": {
+    "email": "robertsittig1996@web.de",
+    "languages": ["Deutsch", "English"]
+  },
+  "website": {
+    "hosting": "GitHub Pages (GitHub, Inc.)",
+    "analytics": false,
+    "marketingCookies": false,
+    "externalFonts": false
+  },
+  "appServices": [
+    "Firebase Authentication",
+    "Firebase Realtime Database (europe-west1)",
+    "Google AdMob and User Messaging Platform",
+    "Apple App Store / StoreKit",
+    "Google Play / Play Billing"
+  ]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Poly Pew Pew</title>
+  <defs>
+    <linearGradient id="g" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8cff66"/>
+      <stop offset="1" stop-color="#64d8ff"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 3 57 17v30L32 61 7 47V17Z" fill="#111426" stroke="url(#g)" stroke-width="4"/>
+  <circle cx="32" cy="32" r="13" fill="none" stroke="#ff5fc8" stroke-width="3"/>
+  <path d="M32 11v11M32 42v11M11 32h11M42 32h11" stroke="#f8fbff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="4" fill="#ffe66a"/>
+</svg>
